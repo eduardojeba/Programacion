@@ -1,0 +1,24 @@
+// numerosimpar.cpp : Defines the entry point for the console application.
+// Autor: Eduardo Bustos
+// Fecha: 25/03/14
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+
+using namespace std;
+
+void main()
+{
+ int a,b,resto;
+ cin>> a;
+ cin>> b;
+ if ((a%2!=0) && (b%2!=0))
+	 resto=(a+b);
+ else 
+     resto=(a*b);
+ cout<< resto;
+ getch();
+}
+
