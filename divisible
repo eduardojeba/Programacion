@@ -1,0 +1,25 @@
+// division.cpp : Defines the entry point for the console application.
+// Autor: Eduardo Bustos
+// Fecha: 25/03/14
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+
+using namespace std;
+
+void main()
+{
+ int a,b,division;
+ cin>> a;
+ cin>> b;
+ if (a%b==0)
+ {
+	 division =(a/b);
+ cout<< division;
+ }
+ getch();
+    
+
+}
