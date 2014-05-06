@@ -1,0 +1,33 @@
+// suma en serie: entry point for the console application.
+//autor: Eduardo Bustos
+
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+using namespace std;
+ void main ()
+ {
+ 
+ float N,x,d,s,i,f;
+ cout<< "ingrese N:";
+ cin>>N;
+ cout<<"ingrese x:";
+ cin>>x;
+ f=1;
+ d=1;
+ s=5;
+ for (i=1;i<=N;i++)
+ 
+
+    {
+		f=f*(i+1);
+		s=s-d*(pow(x,i))/f;
+		d=-1*d;
+ }
+ 
+ cout<<"el resultado de la suma es:"<<s;
+ getch();
+ }
+ 
