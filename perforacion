@@ -1,0 +1,74 @@
+// pDePerforacion.cpp: define el punto de entrada de la aplicación de consola.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include <math.h>
+
+using namespace std;
+
+void main()
+{
+	int n, i;
+	float p, wu, h, ph, wa, mw, fb, wm, wamayor, wmmayor, elpesado, ovp, hl, vh, hhp, ew, edw, dwhp;
+	cout << "De cuantas etapas esta compuesto su programa de perforacion?: ";
+	cin >> n;
+	i = 1;
+	wamayor = 0;
+	wmmayor = 0;
+	while (i <= n )
+	{
+		cout << endl;
+		cout << "ETAPA: " << i;
+		cout << endl;
+		cout << "Introduzca la gradiante de presion [Psi/ft]: ";
+		cin >> p; //h es la profundidad
+		cout << "Introduzca la profundidad [ft]: ";
+		cin >> h; //h es la profundidad
+		ph = p * h;
+		cout << "Introduzca el peso unitario [lb/ft]: ";
+		cin >> wu; //wu es el peso unitario
+		
+		cout << endl;
+		wa = wu * h; //necesito el mayor de este
+		if (wa > wamayor)
+		{	
+			wamayor =wa;
+		}
+		mw = (ph / (h * 0.052));
+		fb = (1 - (mw / 65.5));
+		
+		wm = wa * fb; //necesito el mayor de este
+		if (wm > wmmayor)
+		{	
+			wmmayor =wm;
+		}
+		i = i + 1;
+	} // aqui termina el while
+
+	if( wamayor > wmmayor)
+	{
+		elpesado = wamayor;
+	}
+	else
+	{
+		elpesado = wmmayor;
+	}	
+
+	cout << "Introduzca el over pull [lb]: ";
+	cin >> ovp;
+	hl = elpesado + ovp;
+	cout << "Introduzca la velocidad de izado [ft/min]: ";
+	cin >> vh;
+	hhp = (hl * vh) / 33000;
+	cout << "Introduzca la eficiencia de funcionamiento: ";
+	cin >> ew;
+	cout << "Introduzca la eficiencia de gancho: ";
+	cin >> edw;
+
+	dwhp = (hhp / (ew * edw));
+	cout << endl;
+	cout << "El requerimiento de potencia es: " << dwhp <<" hp";
+	_getch();
+}
